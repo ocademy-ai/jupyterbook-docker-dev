@@ -11,7 +11,7 @@ RUN apt install -y --fix-missing \
     python3-dev \
     python3-pip \
     software-properties-common \
-    snap \
+    snapd \
     openssh-client \
     openssh-server \
     zip \
