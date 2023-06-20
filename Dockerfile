@@ -31,7 +31,6 @@ RUN wget https://github.com/jgraph/drawio-desktop/releases/download/v13.0.3/draw
     dpkg -i draw.io-amd64-13.0.3.deb
 RUN git clone https://github.com/reveurmichael/machine-learning.git && \
     cd machine-learning/open-machine-learning-jupyter-book && \
-    git remote rm origin && \
-    conda env create -f environment.yml
+    --mount=type=cache,target=/opt/conda/pkgs conda env create -f environment.yml
 
 
