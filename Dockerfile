@@ -9,6 +9,15 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     gfortran \
     git \
     wget \
+    libgtk-3-0\
+    libnotify4 \
+    libnss3 \
+    libxss1 \
+    libxtst6 \
+    xdg-utils \
+    libatspi2.0-0 \
+    libappindicator3-1 \
+    libsecret-1-0 \
     curl \
     pkg-config \
     python3-dev \
@@ -18,7 +27,8 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     openssh-server \
     zip \
     && apt clean && rm -rf /tmp/* /var/tmp/*
-RUN snap install drawio
+RUN wget https://github.com/jgraph/drawio-desktop/releases/download/v13.0.3/draw.io-amd64-13.0.3.deb && \
+    dpkg -i draw.io-amd64-13.0.3.deb
 RUN git clone https://github.com/reveurmichael/machine-learning.git && \
     cd machine-learning/open-machine-learning-jupyter-book && \
     git remote rm origin && \
