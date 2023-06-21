@@ -1,3 +1,29 @@
-https://stackoverflow.com/questions/65726398/passing-no-sandbox-but-still-getting-error-running-as-root-without-no-sandbox
 
-sudo docker run --security-opt=seccomp:unconfined -it 5bac3bf81ce9 bash
+## First time configuration
+
+Load the image and run it:
+```bash
+docker load -i ocademy-dev-image
+sudo docker images
+sudo docker run --name ocademy-container --security-opt=seccomp:unconfined -it ocademy-dev-image bash
+sudo docker ps -a
+```
+
+## Get into the container bash
+
+If the container is STOPPED:
+```bash
+sudo docker start ocademy-container
+```
+
+Or else, if the container is  started
+```bash
+sudo docker exec -it ocademy-container bash
+```
+
+
+If you want to build the image from Dockerfile:
+
+```bash
+sudo docker build -t ocademy-dev-image .
+```
