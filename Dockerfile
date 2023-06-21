@@ -47,7 +47,7 @@ RUN --mount=type=cache,target=/opt/conda/pkgs conda env create -f \
     ~/machine-learning/open-machine-learning-jupyter-book/environment.yml
 SHELL ["conda", "run", "-n", "open-machine-learning-jupyter-book", "/bin/bash", "-c"]
 # RUN conda activate open-machine-learning-jupyter-book
-RUN sudo python3 -m pip install jupyter-book jupyter_contrib_nbextensions==0.7.0 \
+RUN python3 -m pip install jupyter-book jupyter_contrib_nbextensions==0.7.0 \
     sphinxcontrib-mermaid==0.7.1 \
     sphinxcontrib-wavedrom==3.0.4 \
     sphinxcontrib-plantuml==0.24.1 \
