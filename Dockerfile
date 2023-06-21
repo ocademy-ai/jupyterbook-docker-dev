@@ -52,9 +52,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
-RUN cd ~ && git clone https://github.com/reveurmichael/machine-learning.git && \
+RUN cd ~ && \
+    git clone https://github.com/ocademy-ai/machine-learning.git && \
     cd machine-learning/open-machine-learning-jupyter-book && \
-    conda env create -f environment.yml
+    git remote rm origin
+RUN --mount=type=cache,target=/opt/conda/pkgs conda env create -f environment.yml
 RUN pip install jupyter-book jupyter_contrib_nbextensions==0.7.0 \
     sphinxcontrib-mermaid==0.7.1 \
     sphinxcontrib-wavedrom==3.0.4 \
