@@ -28,10 +28,31 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     openssh-server \
     libasound2 \
     zip \
+    shadow \
     && apt clean && rm -rf /tmp/* /var/tmp/*
 RUN wget https://github.com/jgraph/drawio-desktop/releases/download/v13.0.3/draw.io-amd64-13.0.3.deb && \
     dpkg -i draw.io-amd64-13.0.3.deb && rm draw.io-amd64-13.0.3.deb
-RUN git clone https://github.com/reveurmichael/machine-learning.git && \
+ARG USERNAME=ocademy
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Create the user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    #
+    # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+# ********************************************************
+# * Anything else you want to do like clean up goes here *
+# ********************************************************
+
+# [Optional] Set the default user. Omit if you want to keep the default as root.
+USER $USERNAME
+RUN cd ~ && git clone https://github.com/reveurmichael/machine-learning.git && \
     cd machine-learning/open-machine-learning-jupyter-book && \
     conda env create -f environment.yml
 RUN pip install jupyter-book jupyter_contrib_nbextensions==0.7.0 \
