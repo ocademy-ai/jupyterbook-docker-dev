@@ -22,7 +22,7 @@ sudo docker exec -it ocademy-container bash
 ```
 
 
-If you want to build the image from Dockerfile:
+## [if you want to challenge youself] If you want to build the image from Dockerfile:
 
 ```bash
 sudo docker build -t ocademy-dev-image .
