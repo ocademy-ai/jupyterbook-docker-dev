@@ -27,3 +27,7 @@ sudo docker exec -it ocademy-container bash
 ```bash
 sudo docker build -t ocademy-dev-image .
 ```
+
+## Ref:
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
