@@ -56,5 +56,10 @@ RUN python3 -m pip install jupyter-book jupyter_contrib_nbextensions==0.7.0 \
     git+https://github.com/innovationOUtside/ipython_magic_tikz.git \
     git+https://github.com/bonartm/sphinxcontrib-quizdown.git \
     xvfbwrapper
+SHELL ["/bin/bash", "--login", "-c"]
+RUN conda init bash
+RUN echo "conda activate open-machine-learning-jupyter-book" >> ~/.bashrc
+SHELL ["/bin/bash", "--login", "-c"]
+
 
 
