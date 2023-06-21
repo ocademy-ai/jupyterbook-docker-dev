@@ -3,7 +3,7 @@
 
 Load the image and run it:
 ```bash
-docker load -i ocademy-dev-image
+sudo docker load -i ocademy-dev-image.tar
 sudo docker images
 sudo docker run --name ocademy-container --security-opt=seccomp:unconfined -it ocademy-dev-image bash
 sudo docker ps -a
