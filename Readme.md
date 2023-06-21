@@ -11,12 +11,12 @@ sudo docker ps -a
 
 ## Get into the container bash
 
-If the container is STOPPED:
+If the container is STOPPED (e.g. after you reboot your computer):
 ```bash
 sudo docker start ocademy-container
 ```
 
-Or else, if the container is  started
+If the container is already running
 ```bash
 sudo docker exec -it ocademy-container bash
 ```
