@@ -31,6 +31,14 @@ sudo  echo '{ "features": { "buildkit": true } }' | sudo tee /etc/docker/daemon.
 sudo docker build -t ocademy-dev-image .
 ```
 
+## WSL 2 Docker VS Code
+
+https://levelup.gitconnected.com/remote-development-with-docker-wsl2-and-visual-studio-code-36fc3ff303c6
+
+https://securecloud.blog/2021/12/07/wsl2-use-docker-with-vscode-without-docker-desktop/
+
+https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers
+
 ## Ref:
 
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
